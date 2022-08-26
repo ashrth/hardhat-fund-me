@@ -1,12 +1,11 @@
-require("@nomicfoundation/hardhat-toolbox");
-// require("@nomiclabs/hardhat-waffle")
+require("@nomicfoundation/hardhat-toolbox")
 require("hardhat-deploy")
 require("dotenv").config()
 const { getUsedIdentifiers } = require("typechain")
 require("@nomicfoundation/hardhat-toolbox")
-
+// require("@nomiclabs/hardhat-waffle")
 // require('hardhat/config').HardhatUserConfig
- 
+
 // require("dotenv").config()
 // require("hardhat-gas-reporter")
 // require("@nomiclabs/hardhat-etherscan")
@@ -15,19 +14,18 @@ require("@nomicfoundation/hardhat-toolbox")
 //  @type import('hardhat/config').HardhatUserConfig
 
 module.exports = {
-  solidity: {
-    compilers:[{version: "0.8.8"},{version: "0.6.6"}],
+    solidity: {
+        compilers: [{ version: "0.8.8" }, { version: "0.6.6" }],
 
-  
-    defaultNetwork: "hardhat",
+        defaultNetwork: "hardhat",
 
-namedAccounts:{
-  deployer:{
-    default:0
-  },
-  users:{
-    default:1
-  }
+        namedAccounts: {
+            deployer: {
+                default: 0,
+            },
+            users: {
+                default: 1,
+            },
+        },
+    },
 }
-}
-};
