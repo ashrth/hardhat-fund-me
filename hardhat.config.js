@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox")
 require("hardhat-deploy")
 require("dotenv").config()
+require("@nomiclabs/hardhat-ethers")
 const { getUsedIdentifiers } = require("typechain")
 require("@nomicfoundation/hardhat-toolbox")
 // require("@nomiclabs/hardhat-waffle")

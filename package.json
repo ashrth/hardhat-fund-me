@@ -13,10 +13,9 @@
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
     "chai": "^4.3.6",
-    "chainlink": "^0.8.2",
-    "dotenv": "^16.0.1",
     
-    "ethers": "^5.7.0",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.0.0",
     "hardhat": "^2.10.2",
     "hardhat-contract-sizer": "^2.6.1",
     "hardhat-deploy": "^0.11.12",
