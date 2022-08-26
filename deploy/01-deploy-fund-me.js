@@ -1,6 +1,7 @@
 //import
 const { networkConfig, developmentChains } = require("../helper-hardhat-config")
 const { network } = require("hardhat")
+const { verify } = require("../utils/verify")
 //main function
 // calling of main function
 // if the contract doesn't exist, we deploy a minimal version of it for our local testing
@@ -27,14 +28,24 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         const ethUsdAggregator = await deployments.get("MockV3Aggregator")
         ethUsdPriceFeedAddress = ethUsdAggregator.address
     } else {
-        ethUsdPriceFeedAddress = networkConfig[chainId][ethUsdPriceFeed]
+        ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeed"]
+    }
+    const args = [ethUsdPriceFeedAddress]
+
+    const fundMe = await deploy("FundMe", {
+        from: deployer,
+        args: args,
+        log: true,
+        WaitConfirmations: network.config.blockConfirmations || 1,
+    })
+
+    if (
+        !developmentChains.includes(network.name) &&
+        process.env.ETHERSCAN_API_KEY
+    ) {
+        await verify(fundMe.address, [ethUsdPriceFeedAddress])
     }
 
-    const fundMe = await deploy("fundMe", {
-        from: deployer,
-        args: [ethUsdPriceFeedAddress],
-        log: true
-    })
     log("---------------------------------------------")
 }
 module.exports.tags = ["all", "fundme"]
