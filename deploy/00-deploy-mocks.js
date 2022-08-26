@@ -14,7 +14,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
             contract: "MockV3Aggregator",
             from: deployer,
             log: true,
-            args: [DECIMAL, INITIAL_ANSWER],
+            args: [DECIMAL, INITIAL_ANSWER]
         })
         log("Mocks Deployed")
         log("_________________________________________________________")
