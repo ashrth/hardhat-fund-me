@@ -1,4 +1,6 @@
 {
+  "name": "hardhat-fund-me",
+  "author": "ashrth",
   "devDependencies": {
     "@chainlink/contracts": "^0.4.1",
     "@ethersproject/abi": "^5.4.7",
@@ -26,5 +28,13 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "solhint": "^3.3.7"
+  },
+  "scripts": {
+    "test": "yarn hardhat test",
+    "test:staging": "yarn hardhat test --network rinkeby",
+    "lint": "yarn solhint 'contracts/*.sol'",
+    "lint:fix": "yarn solhint 'contracts/*.sol'--fix",
+    "format": "yarn prettier --write .",
+    "coverage": "yarn hardhat coverage"
   }
 }
